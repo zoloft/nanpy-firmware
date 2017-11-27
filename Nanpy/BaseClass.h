@@ -24,6 +24,7 @@ namespace nanpy {
             ObjectsManager() {}
             void elaborate( nanpy::MethodDescriptor* m ) {
                 if (strcmp(m->getName(), "remove") == 0) {
+                    COMM_SERIAL.println("DELETION");
                     delete(v[m->getObjectId()]);
                     v.remove(m->getObjectId());
                     COMM_SERIAL.println("0");
@@ -37,7 +38,7 @@ namespace nanpy {
         static nanpy::SlimArray <nanpy::BaseClass*> classes;
 
         public:
-            
+
             template <typename T> static void registerClass() {
                 nanpy::BaseClass* obj = (nanpy::BaseClass*)new T();
                 classes.insert(obj);

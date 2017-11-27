@@ -84,3 +84,5 @@
 // install with Library Manager: "MCP41XXX"
 // https://github.com/ArduinoMax/MCP41xxx
 #define USE_MCP41xxx                                0
+
+#define USE_Display                                 1
